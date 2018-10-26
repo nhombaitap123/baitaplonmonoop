@@ -44,6 +44,8 @@
             this.sETTINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHint = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.diemlabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.board)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cross)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -179,12 +181,32 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(146, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 76);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(448, 191);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // diemlabel
+            // 
+            this.diemlabel.AutoSize = true;
+            this.diemlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diemlabel.Location = new System.Drawing.Point(602, 159);
+            this.diemlabel.Name = "diemlabel";
+            this.diemlabel.Size = new System.Drawing.Size(36, 39);
+            this.diemlabel.TabIndex = 7;
+            this.diemlabel.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(553, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 39);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Điểm số";
             // 
             // Form5
             // 
@@ -192,6 +214,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(735, 479);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.diemlabel);
             this.Controls.Add(this.btnHint);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cross);
@@ -231,6 +255,8 @@
         private System.Windows.Forms.ToolStripMenuItem rANKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sETTINGToolStripMenuItem;
         private System.Windows.Forms.Button btnHint;
+        private System.Windows.Forms.Label diemlabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 

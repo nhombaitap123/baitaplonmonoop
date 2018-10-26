@@ -51,13 +51,6 @@
             this.listBox1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 31;
-            this.listBox1.Items.AddRange(new object[] {
-            "Xếp hạng\t    Tên\tĐiểm",
-            "      1",
-            "      2",
-            "      3",
-            "      4",
-            "      5"});
             this.listBox1.Location = new System.Drawing.Point(56, 54);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(326, 188);

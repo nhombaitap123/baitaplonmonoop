@@ -27,3 +27,8 @@ D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\lam game
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\lam game\lam game\bin\Debug\resource\BackGroundMusic.wav
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\lam game\lam game\obj\Debug\lam_game.Form7.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\lam game\lam game\obj\Debug\lam_game.Form8.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\bin\Debug\resource\BackGroundMusic.wav
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form6.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form7.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form8.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Resource1.resources

@@ -24,7 +24,6 @@ namespace lam_game
 
         private void btnAgain_Click(object sender, EventArgs e)
         {
-            Form1.dulieu = "";
             this.Close();
         }
     }

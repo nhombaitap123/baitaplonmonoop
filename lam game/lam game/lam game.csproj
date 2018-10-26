@@ -96,6 +96,7 @@
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
     <Compile Include="tuvung.cs" />
+    <Compile Include="xephang.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,9 +145,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="data\dulieu.txt" />
+    <Folder Include="data\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="resource\34026063-colorful-paperclip-chain-page-border-.bmp" />
     <Content Include="resource\BackGroundMusic.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
