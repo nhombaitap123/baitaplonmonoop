@@ -8,8 +8,8 @@ namespace lam_game
 {
     class xephang
     {
-        private string username;
-        private int diem;
+        public string username;
+        public int diem;
 
         public xephang(string ten, int diemso)
         {

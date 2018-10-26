@@ -15,7 +15,7 @@ namespace lam_game
 {
     public partial class Form5 : Form
     {
-        int n = 0, diemso = 0;
+        int n = 0, diemso = 0, mangsong = 3;
         int dem = 0, dem_1 = 0, Next = 0, chieudaiword, dem_hint = 0, vitri = 0;
         private static Random chuoingaunhien = new Random(), songaunhien = new Random();
         private static int[] question = new int[3];
@@ -204,9 +204,7 @@ namespace lam_game
             Next = 0;
             using (StreamWriter luuData = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/data/dulieu.txt"))
             {
-                luuData.WriteLine("1234");
-
-                //                    luuData.WriteLine(tenuser + " " + diemso + " ");
+                luuData.WriteLine(tenuser + " " + diemso + " ");
             }
 
 
@@ -539,7 +537,7 @@ namespace lam_game
                 dem = 0;
                 diemso = 0;
                 diemlabel.Text = diemso.ToString();
-
+                this.Hide();
                 Form8 box = new Form8();
                 box.ShowDialog();
             }
@@ -548,6 +546,7 @@ namespace lam_game
             {
                 if (!checkresult(danhsachword[dem - 1].englishword, xulychuoi()))
                 {
+                    mangsong--;
                     return;
                 }
             }

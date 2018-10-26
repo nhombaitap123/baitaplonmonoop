@@ -17,13 +17,20 @@ namespace lam_game
         public static int i = 0;
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 //        StreamWriter luuData = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/data/dulieu.txt");
-        public Form5 box;
+        public static Form5 box;
         public Form1()
         {
             InitializeComponent();
             player.SoundLocation = "D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/BackGroundMusic.wav";
             player.Play();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Form1 box = new Form1();
+            box.ShowDialog();
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -44,11 +51,6 @@ namespace lam_game
         {
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
-                //                i++;
-                /*                using (luuData)
-                                {
-                                    luuData.WriteLine(txtBox.Text + "\n");
-                                }*/
                 box = new Form5(txtBox.Text);
                 box.ShowDialog();
             }

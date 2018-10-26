@@ -12,6 +12,7 @@ namespace lam_game
 {
     public partial class Form8 : Form
     {
+        private Form1 form1;
         public Form8()
         {
             InitializeComponent();
@@ -19,11 +20,12 @@ namespace lam_game
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(1);
         }
 
         private void btnAgain_Click(object sender, EventArgs e)
         {
+            form1.ShowDialog();
             this.Close();
         }
     }

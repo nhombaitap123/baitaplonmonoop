@@ -42,7 +42,7 @@
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 306);
+            this.panel1.Size = new System.Drawing.Size(450, 408);
             this.panel1.TabIndex = 0;
             // 
             // listBox1
@@ -53,14 +53,14 @@
             this.listBox1.ItemHeight = 31;
             this.listBox1.Location = new System.Drawing.Point(56, 54);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(326, 188);
+            this.listBox1.Size = new System.Drawing.Size(340, 281);
             this.listBox1.TabIndex = 0;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 306);
+            this.ClientSize = new System.Drawing.Size(456, 421);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";

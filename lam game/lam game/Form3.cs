@@ -13,7 +13,7 @@ namespace lam_game
 {
     public partial class Form3 : Form
     {
-        private xephang[] danhsachdiem = new xephang[10];
+        private xephang[] danhsachdiem = new xephang[6];
         public Form3()
         {
             InitializeComponent();
@@ -38,20 +38,36 @@ namespace lam_game
                     k = 0;
 
                     StringBuilder sd = new StringBuilder(diem);
-                    while (line[j] != '\n') //Can sua tiep cho nay.
+                    while (line[j] != ' ') 
                     {
                         sd[k] = line[j];
                         j++;
                         k++;
                     }
 
-
-                    //                    danhsachdiem[i] = new xephang();
-                    //                    listBox1.Items.Add(line);
+                    diem = sd.ToString();
+                    danhsachdiem[i] = new xephang(ten, int.Parse(diem));
                     i++;
                 }
             }
+
+            Array.Sort(danhsachdiem, delegate(xephang xephang1, xephang xephang2) 
+            {
+                return xephang1.diem.CompareTo(xephang2.diem);
+            });
+            listBox1.Items.Add("Thứ hạng\tNgười chơi   Điểm");
+
+            int h = 1;
+            foreach (xephang thuhang in danhsachdiem)
+            {
+                listBox1.Items.Add(h.ToString() + "\t" + thuhang.username + "\t   " + thuhang.diem);
+                h++;
+            }
+
+
+
         }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
