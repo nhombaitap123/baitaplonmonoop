@@ -13,12 +13,12 @@ namespace lam_game
 {
     public partial class Form3 : Form
     {
-        private xephang[] danhsachdiem = new xephang[6];
+        private xephang[] danhsachdiem = new xephang[5];
         public Form3()
         {
             InitializeComponent();
             using (StreamReader sr = new StreamReader("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
-            {
+            {                
                 int i = 0;
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -37,6 +37,9 @@ namespace lam_game
                     j++;
                     k = 0;
 
+                    while (line[j] == ' ')
+                        j++;
+
                     StringBuilder sd = new StringBuilder(diem);
                     while (line[j] != ' ') 
                     {
@@ -51,12 +54,8 @@ namespace lam_game
                 }
             }
 
-            Array.Sort(danhsachdiem, delegate(xephang xephang1, xephang xephang2) 
-            {
-                return xephang1.diem.CompareTo(xephang2.diem);
-            });
             listBox1.Items.Add("Thứ hạng\tNgười chơi   Điểm");
-
+            
             int h = 1;
             foreach (xephang thuhang in danhsachdiem)
             {

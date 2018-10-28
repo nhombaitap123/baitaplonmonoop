@@ -123,21 +123,21 @@
             // nEWGAMEToolStripMenuItem
             // 
             this.nEWGAMEToolStripMenuItem.Name = "nEWGAMEToolStripMenuItem";
-            this.nEWGAMEToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.nEWGAMEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nEWGAMEToolStripMenuItem.Text = "NEW GAME";
             this.nEWGAMEToolStripMenuItem.Click += new System.EventHandler(this.nEWGAMEToolStripMenuItem_Click);
             // 
             // sAVEGAMEToolStripMenuItem
             // 
             this.sAVEGAMEToolStripMenuItem.Name = "sAVEGAMEToolStripMenuItem";
-            this.sAVEGAMEToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.sAVEGAMEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sAVEGAMEToolStripMenuItem.Text = "SAVE GAME";
             this.sAVEGAMEToolStripMenuItem.Click += new System.EventHandler(this.sAVEGAMEToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
@@ -153,6 +153,7 @@
             this.hELPToolStripMenuItem.Name = "hELPToolStripMenuItem";
             this.hELPToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.hELPToolStripMenuItem.Text = "HELP";
+            this.hELPToolStripMenuItem.Click += new System.EventHandler(this.hELPToolStripMenuItem_Click);
             // 
             // rANKToolStripMenuItem
             // 

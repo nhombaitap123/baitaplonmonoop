@@ -1,12 +1,5 @@
-3
-s 2 
-t 2 
-d 2 
-p 2 
-q 2 
-gj 2 
-sy 2 
-sy 2 
-sy 2 
-s 2 
-s 2 
+qzx 2 
+sd         2 
+qc         2 
+t          2 
+s          2 

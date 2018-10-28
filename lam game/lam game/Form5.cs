@@ -24,27 +24,35 @@ namespace lam_game
         kbutton, lbutton, mbutton, nbutton, obutton, pbutton, 
         qbutton, rbutton, sbutton, tbutton, ubutton, vbutton, 
         wbutton, xbutton, ybutton, zbutton;
+        private static xephang[] danhsachdiem = new xephang[6];
+        private static int[] daysongaunhien = new int[3];
+        private static int[] phantumang = new int[3];
+        private static int[] phantuword = new int[10];
+ 
+        private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form7 box = new Form7();
+            box.ShowDialog();
+        }
+
         string tenuser;
 
 
 
         private void btnHint_Click(object sender, EventArgs e)
-        {
+        {            
+            if (vitri == danhsachword[phantumang[dem - 1]].lengthword)
+                return;
+            dem_hint++;
             if (dem_hint == 3)
             {
-                return;
+                Form11 box = new Form11();
+                btnHint.Visible = false;
+                box.ShowDialog();
             }
-            else
-            {
-                if (vitri == danhsachword[dem - 1].lengthword)
-                    return;
-                dem_hint++;
-                if (dem_hint == 3)
-                    btnHint.Visible = false;
-                board.Rows[0].Cells[vitri].Value = danhsachword[dem - 1].englishword[vitri];
-                vitri++;
-                Next++;
-            }
+            board.Rows[0].Cells[vitri].Value = danhsachword[phantumang[dem - 1]].englishword[vitri];
+            vitri++;
+            Next++;            
         }
 
         private void sETTINGToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,9 +78,9 @@ namespace lam_game
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
                     /////Chua lam truong hop neu dem = 0.
-                        sw.WriteLine(danhsachword[dem - 1].englishword + " ");
-                        sw.WriteLine(danhsachword[dem - 1].lengthword + " ");
-                        sw.WriteLine(danhsachword[dem - 1].hinh.ToString() + " ");
+                        sw.WriteLine(danhsachword[phantumang[dem - 1]].englishword + " ");
+                        sw.WriteLine(danhsachword[phantumang[dem - 1]].lengthword + " ");
+                        sw.WriteLine(danhsachword[phantumang[dem - 1]].hinh.ToString() + " ");
                         sw.WriteLine((dem - 1).ToString());
                 }
 
@@ -84,7 +92,7 @@ namespace lam_game
         {
             if (MessageBox.Show("Are You Sure To Exit Game ?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                this.Close();
+                Environment.Exit(1);
             }
         }
 
@@ -126,15 +134,6 @@ namespace lam_game
               .Select(s => s[chuoingaunhien.Next(s.Length)]).ToArray());
         }
 
-        public static string RandomStringresult(int length, string stringresult)
-        {
-            string chars = stringresult;
-            return new string(Enumerable.Repeat(chars, 1)
-              .Select(s => s[chuoingaunhien.Next(s.Length)]).ToArray());
-        }
-
-
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -145,42 +144,46 @@ namespace lam_game
 
         }
 
+        private void xaotron(ref int[] mang)
+        {
+            int temp;
+            for(int i = mang.Length; i > 0; i--)
+            {
+                for(int j = 0;j < i - 1;j++)
+                {
+                    temp = mang[j];
+                    mang[j] = mang[j + 1];
+                    mang[j + 1] = temp;
+                }
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images");
-            danhsachword = new tuvung[100];
-            int sorandom = 0;
-            for (int i = 0;i < 3; i++)
-            {
-                while(true)
-                {
-                    sorandom = songaunhien.Next(0, 3);
-                    int k;
-                    for (k = 0; k < i; k++)
-                    {
-                        if (question[k] == sorandom)
-                            break;
-                    }
+            danhsachword = new tuvung[3];
 
-                    if (k == i)
-                        break;
-                }
-                question[i] = sorandom;
-            }
-
-            int j = 0;
-            foreach(int i in question)
+            for (int i = 0; i < 3;i++)
             {
                 nameimage = Path.GetFileNameWithoutExtension(files[i]);
                 chieudaiword = nameimage.Length;
                 bgimg = new Bitmap("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images/" + nameimage + ".bmp");
-                danhsachword[j] = new tuvung(nameimage, chieudaiword, bgimg);
-                j++;
+                danhsachword[i] = new tuvung(nameimage, chieudaiword, bgimg);
             }
+
+            for (int i = 0; i < 3; i++)
+                phantumang[i] = i;
+
+            for (int i = 0; i < 10; i++)
+                phantuword[i] = i;
+
+            xaotron(ref phantumang);
+            xaotron(ref phantuword);
+
             vitri = 0;
             if (bienthu != 0)
             {
-                if (!checkresult(danhsachword[dem - 1].englishword, xulychuoi()))
+                if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
                 {
                     return;
                 }
@@ -191,10 +194,10 @@ namespace lam_game
             if (dem_1 == 0)
                 dem_1 = 1;
 
-            pictureBox1.Image = danhsachword[dem].hinh;
-            n = danhsachword[dem].lengthword;
+            pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
+            n = danhsachword[phantumang[dem]].lengthword;
             InitializeBoard(n);
-            InitializeCross(10);
+            InitializeCross();
             dem++;
             if (dem == 3)
             {
@@ -202,12 +205,6 @@ namespace lam_game
                 vitri = 0;
             }
             Next = 0;
-            using (StreamWriter luuData = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/data/dulieu.txt"))
-            {
-                luuData.WriteLine(tenuser + " " + diemso + " ");
-            }
-
-
         }
 
         private void InitializeBoard(int n)
@@ -235,12 +232,12 @@ namespace lam_game
 
         }
 
-        private void InitializeCross(int n)
+        private void InitializeCross()
         {
             cross.BackgroundColor = Color.White;
             cross.DefaultCellStyle.BackColor = Color.White;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < 10; i++)
                 cross.Columns.Add("", "");
 
 
@@ -323,7 +320,20 @@ namespace lam_game
             cross.Columns[8].Name = "i";
             cross.Columns[9].Name = "j";
 
-            string[] rows = new string[] { RandomStringresult(10,danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomStringresult(10, danhsachword[dem].englishword), RandomString(10), RandomString(10), RandomString(10)};
+            //            string[] rows = new string[] { RandomStringresult(10,danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomString(10), RandomString(10), RandomString(10)};
+            string[] rows = new string[10];
+            int j = 0;
+
+            foreach(int i in phantuword)            
+            {
+                if (j < n)
+                    rows[i] = danhsachword[phantumang[dem]].englishword[j].ToString();
+                else
+                    rows[i] = RandomString(10);
+
+                j++;
+            }
+
             cross.Rows.Add(rows);
             
         }
@@ -428,98 +438,98 @@ namespace lam_game
             }
             else if (e.ColumnIndex == cross.Columns["k"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "k";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[10].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["l"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "l";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[11].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["m"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "m";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[12].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["n"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "n";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[13].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["o"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "o";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[14].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["p"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "p";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[15].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["q"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "q";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[16].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["r"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "r";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[17].Value;
                 Next++;
                 vitri++;
 
             }
             else if (e.ColumnIndex == cross.Columns["s"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "s";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[18].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["t"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "t";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[19].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["u"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "u";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[20].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["v"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "v";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[21].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["w"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "w";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[22].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["x"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "x";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[23].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["y"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "y";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[24].Value;
                 Next++;
                 vitri++;
             }
             else if (e.ColumnIndex == cross.Columns["z"].Index)
             {
-                board.Rows[0].Cells[Next].Value = "z";
+                board.Rows[0].Cells[Next].Value = cross.Rows[0].Cells[25].Value;
                 Next++;
                 vitri++;
             }
@@ -530,10 +540,7 @@ namespace lam_game
         {            
             if (dem == 3)
             {
-                using (StreamWriter sw = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt",true))
-                {
-                    sw.WriteLine(tenuser + " " + diemso + " ");
-                }
+                xulydiem();
                 dem = 0;
                 diemso = 0;
                 diemlabel.Text = diemso.ToString();
@@ -541,12 +548,23 @@ namespace lam_game
                 Form8 box = new Form8();
                 box.ShowDialog();
             }
+
             vitri = 0;
             if (bienthu != 0)
             {
-                if (!checkresult(danhsachword[dem - 1].englishword, xulychuoi()))
+                if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
                 {
                     mangsong--;
+                    if (mangsong == 0)
+                    {
+                        xulydiem();
+                        Form9 box = new Form9();
+                        this.Hide();
+                        box.ShowDialog();
+                    }
+
+                    Form10 box1 = new Form10();
+                    box1.ShowDialog();
                     return;
                 }
             }
@@ -570,10 +588,10 @@ namespace lam_game
             if (dem_1 == 0)
                 dem_1 = 1;
 
-            pictureBox1.Image = danhsachword[dem].hinh;
-            n = danhsachword[dem].lengthword;
+            pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
+            n = danhsachword[phantumang[dem]].lengthword;
             InitializeBoard(n);
-            InitializeCross(10);
+            InitializeCross();
             dem++;
             if (dem == 3)
             {
@@ -582,8 +600,7 @@ namespace lam_game
             }
             Next = 0;
             diemso++;
-            diemlabel.Text = diemso.ToString();
-                        
+            diemlabel.Text = diemso.ToString();                        
         }
 
         private bool checkresult(string dapan,string ketqua)
@@ -607,6 +624,60 @@ namespace lam_game
             }
             chuoitam = sb.ToString();
             return chuoitam;
+        }
+
+        private void xulydiem()
+        {
+            using (StreamReader sd = new StreamReader("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
+            {
+                int i = 0;
+                string line;
+                while ((line = sd.ReadLine()) != null)
+                {
+                    int j = 0, k = 0;
+                    string ten = "          ", diem = "        ";
+
+                    StringBuilder sb = new StringBuilder(ten);
+                    while (line[j] != ' ')
+                    {
+                        sb[k] = line[j];
+                        j++;
+                        k++;
+                    }
+                    ten = sb.ToString();
+                    j++;
+                    k = 0;
+
+                    while (line[j] == ' ')
+                        j++;
+
+                    StringBuilder sf = new StringBuilder(diem);
+                    while (line[j] != ' ')
+                    {
+                        sf[k] = line[j];
+                        j++;
+                        k++;
+                    }
+
+                    diem = sf.ToString();
+                    danhsachdiem[i] = new xephang(ten, int.Parse(diem));
+                    i++;
+                }
+
+                danhsachdiem[i] = new xephang(tenuser, diemso);
+            }
+
+            Array.Sort(danhsachdiem, delegate (xephang xephang1, xephang xephang2)
+            {
+                return xephang1.diem.CompareTo(xephang2.diem);
+            });
+
+
+            using (StreamWriter sw = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
+            {
+                for (int i = 5; i > 0; i--)
+                    sw.WriteLine(danhsachdiem[i].username + " " + danhsachdiem[i].diem + " ");
+            }
         }
 
     }

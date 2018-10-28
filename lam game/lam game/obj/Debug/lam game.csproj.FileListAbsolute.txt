@@ -32,3 +32,6 @@ D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New fold
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form7.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form8.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Resource1.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form9.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form10.resources
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form11.resources
