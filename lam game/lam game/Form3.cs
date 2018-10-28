@@ -62,10 +62,8 @@ namespace lam_game
                 listBox1.Items.Add(h.ToString() + "\t" + thuhang.username + "\t   " + thuhang.diem);
                 h++;
             }
-
-
-
         }
+
 
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

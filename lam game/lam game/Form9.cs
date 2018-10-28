@@ -15,7 +15,14 @@ namespace lam_game
         public Form9()
         {
             InitializeComponent();
+            this.FormClosed += MainPage_FormClosed;
         }
+
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {

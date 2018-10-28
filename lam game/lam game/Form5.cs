@@ -17,7 +17,7 @@ namespace lam_game
     {
         int n = 0, diemso = 0, mangsong = 3;
         int dem = 0, dem_1 = 0, Next = 0, chieudaiword, dem_hint = 0, vitri = 0;
-        private static Random chuoingaunhien = new Random(), songaunhien = new Random();
+        private static Random chuoingaunhien = new Random(DateTime.UtcNow.Millisecond), songaunhien = new Random(DateTime.UtcNow.Millisecond);
         private static int[] question = new int[3];
         private static DataGridViewButtonColumn abutton, bbutton, cbutton, dbutton, 
         ebutton, fbutton, gbutton, hbutton, ibutton, jbutton, 
@@ -26,7 +26,7 @@ namespace lam_game
         wbutton, xbutton, ybutton, zbutton;
         private static xephang[] danhsachdiem = new xephang[6];
         private static int[] daysongaunhien = new int[3];
-        private static int[] phantumang = new int[3];
+        private static int[] phantumang = new int[36];
         private static int[] phantuword = new int[10];
  
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,7 +109,8 @@ namespace lam_game
         }
 
         private static tuvung[] danhsachword;
-        Bitmap bgimg;
+        Image hinh;
+//        Bitmap bgimg;
         string nameimage, chuoitam;
         string[] files;
         int bienthu = 0; //Bien nay chi la tam thoi.
@@ -134,6 +135,11 @@ namespace lam_game
               .Select(s => s[chuoingaunhien.Next(s.Length)]).ToArray());
         }
 
+        public static int RandomNumber(int Length)
+        {
+            return songaunhien.Next(0, Length);
+        }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -147,31 +153,30 @@ namespace lam_game
         private void xaotron(ref int[] mang)
         {
             int temp;
-            for(int i = mang.Length; i > 0; i--)
+            for (int i = 0;i < mang.Length;i++)
             {
-                for(int j = 0;j < i - 1;j++)
-                {
-                    temp = mang[j];
-                    mang[j] = mang[j + 1];
-                    mang[j + 1] = temp;
-                }
+                int j = RandomNumber(mang.Length - 1);
+                temp = mang[j];
+                mang[j] = mang[i];
+                mang[i] = temp;
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images");
-            danhsachword = new tuvung[3];
+            files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images");
+            danhsachword = new tuvung[36];
 
-            for (int i = 0; i < 3;i++)
+            for (int i = 0; i < 36;i++)
             {
                 nameimage = Path.GetFileNameWithoutExtension(files[i]);
                 chieudaiword = nameimage.Length;
-                bgimg = new Bitmap("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images/" + nameimage + ".bmp");
-                danhsachword[i] = new tuvung(nameimage, chieudaiword, bgimg);
+                hinh = Image.FromFile("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images/" + nameimage + ".jpg");
+                //                bgimg = new Bitmap("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images/" + nameimage + ".bmp");
+                danhsachword[i] = new tuvung(nameimage, chieudaiword, hinh);
             }
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 36; i++)
                 phantumang[i] = i;
 
             for (int i = 0; i < 10; i++)
@@ -205,6 +210,13 @@ namespace lam_game
                 vitri = 0;
             }
             Next = 0;
+            this.FormClosed += MainPage_FormClosed; 
+
+        }
+
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
         }
 
         private void InitializeBoard(int n)
@@ -538,7 +550,7 @@ namespace lam_game
 
         private void button1_Click(object sender, EventArgs e)
         {            
-            if (dem == 3)
+            if (dem == 36)
             {
                 xulydiem();
                 dem = 0;
@@ -593,7 +605,7 @@ namespace lam_game
             InitializeBoard(n);
             InitializeCross();
             dem++;
-            if (dem == 3)
+            if (dem == 36)
             {
                 bienthu = 0;
                 vitri = 0;
@@ -664,7 +676,7 @@ namespace lam_game
                     i++;
                 }
 
-                danhsachdiem[i] = new xephang(tenuser, diemso);
+                danhsachdiem[i] = new xephang(tenuser, diemso + 1);
             }
 
             Array.Sort(danhsachdiem, delegate (xephang xephang1, xephang xephang2)

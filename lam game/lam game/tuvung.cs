@@ -15,9 +15,9 @@ namespace lam_game
     {
         public string englishword;
         public int lengthword;
-        public Bitmap hinh;
+        public Image hinh;
 
-        public tuvung(string tienganh, int chieudai, Bitmap anh)
+        public tuvung(string tienganh, int chieudai, Image anh)
         {
             this.englishword = tienganh;
             this.lengthword = chieudai;

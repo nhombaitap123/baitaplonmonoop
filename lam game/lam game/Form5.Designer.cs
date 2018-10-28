@@ -123,21 +123,21 @@
             // nEWGAMEToolStripMenuItem
             // 
             this.nEWGAMEToolStripMenuItem.Name = "nEWGAMEToolStripMenuItem";
-            this.nEWGAMEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nEWGAMEToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.nEWGAMEToolStripMenuItem.Text = "NEW GAME";
             this.nEWGAMEToolStripMenuItem.Click += new System.EventHandler(this.nEWGAMEToolStripMenuItem_Click);
             // 
             // sAVEGAMEToolStripMenuItem
             // 
             this.sAVEGAMEToolStripMenuItem.Name = "sAVEGAMEToolStripMenuItem";
-            this.sAVEGAMEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sAVEGAMEToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.sAVEGAMEToolStripMenuItem.Text = "SAVE GAME";
             this.sAVEGAMEToolStripMenuItem.Click += new System.EventHandler(this.sAVEGAMEToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(735, 479);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.diemlabel);

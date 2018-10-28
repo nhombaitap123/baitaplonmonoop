@@ -16,6 +16,12 @@ namespace lam_game
         public Form8()
         {
             InitializeComponent();
+            this.FormClosed += MainPage_FormClosed;
+        }
+
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -25,7 +31,6 @@ namespace lam_game
 
         private void btnAgain_Click(object sender, EventArgs e)
         {
-            form1.ShowDialog();
             this.Close();
         }
     }
