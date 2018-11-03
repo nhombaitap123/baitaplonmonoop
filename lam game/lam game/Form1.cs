@@ -16,8 +16,10 @@ namespace lam_game
     {
         public static int i = 0;
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-//        StreamWriter luuData = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/data/dulieu.txt");
+        public static int sotuvung;
+        private static tuvung[] danhsachtu;
         public static Form5 box;
+        string tenuser;
         public Form1()
         {
             InitializeComponent();
@@ -85,6 +87,68 @@ namespace lam_game
         {
             Form7 box = new Form7();
             box.ShowDialog();
+        }
+
+        private void lOADGAMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.Title = "Select a File to Load";
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string chuoitam, chuoiTemp = "           ", nameimage, PathFile;
+                int LengthImage;
+                Image hinh;
+                StringBuilder ChuoiBuild;
+                using (StreamReader sd = new StreamReader(openFileDialog1.FileName))
+                {
+                    tenuser = sd.ReadLine();
+                    sotuvung = Int32.Parse(sd.ReadLine());
+                    danhsachtu = new tuvung[36];
+                    for (int i = 0; i < sotuvung;i++)
+                    {
+                        int j = 0, k = 0;
+                        chuoitam = sd.ReadLine();
+                        ChuoiBuild = new StringBuilder(chuoiTemp);
+                        while (chuoitam[j] != ' ')
+                        {
+                            ChuoiBuild[k] = chuoitam[j];
+                            k++;
+                            j++;
+                        }
+                        nameimage = ChuoiBuild.ToString();
+                        k = 0;
+                        j++;
+                        chuoiTemp = "        ";
+                        ChuoiBuild = new StringBuilder(chuoiTemp);
+                        while (chuoitam[j] != ' ')
+                        {
+                            ChuoiBuild[k] = chuoitam[j];
+                            k++;
+                            j++;
+                        }
+                        LengthImage = Int32.Parse(ChuoiBuild.ToString());
+                        k = 0;
+                        j++;
+                        chuoiTemp = "                                                                                                                                                                                 ";
+                        ChuoiBuild = new StringBuilder(chuoiTemp);
+                        while (chuoitam[j] != '\t')
+                        {
+                            ChuoiBuild[k] = chuoitam[j];
+                            k++;
+                            j++;
+                        }
+                        PathFile = ChuoiBuild.ToString();
+                        hinh = Image.FromFile(PathFile);
+                        danhsachtu[i] = new tuvung(nameimage,LengthImage,hinh,PathFile);
+                    }
+                }
+                box = new Form5(tenuser, sotuvung, danhsachtu);
+                box.daload = 1;
+                box.ShowDialog();
+            }
+
+
         }
     }
 }

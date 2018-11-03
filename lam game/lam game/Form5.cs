@@ -15,10 +15,9 @@ namespace lam_game
 {
     public partial class Form5 : Form
     {
-        int n = 0, diemso = 0, mangsong = 3;
+        int n = 0, diemso = 0, mangsong = 3, soword;
         int dem = 0, dem_1 = 0, Next = 0, chieudaiword, dem_hint = 0, vitri = 0;
         private static Random chuoingaunhien = new Random(DateTime.UtcNow.Millisecond), songaunhien = new Random(DateTime.UtcNow.Millisecond);
-        private static int[] question = new int[3];
         private static DataGridViewButtonColumn abutton, bbutton, cbutton, dbutton, 
         ebutton, fbutton, gbutton, hbutton, ibutton, jbutton, 
         kbutton, lbutton, mbutton, nbutton, obutton, pbutton, 
@@ -26,9 +25,11 @@ namespace lam_game
         wbutton, xbutton, ybutton, zbutton;
         private static xephang[] danhsachdiem = new xephang[6];
         private static int[] daysongaunhien = new int[3];
-        private static int[] phantumang = new int[36];
+        private static int[] phantumang;
         private static int[] phantuword = new int[10];
- 
+        private string PathFile;
+        public int daload = 0;
+
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form7 box = new Form7();
@@ -72,18 +73,20 @@ namespace lam_game
         {
             savefile.FileName = "game.txt";
             savefile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            savefile.Title = "Select a File to Save";
 
             if (savefile.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
-                    /////Chua lam truong hop neu dem = 0.
-                        sw.WriteLine(danhsachword[phantumang[dem - 1]].englishword + " ");
-                        sw.WriteLine(danhsachword[phantumang[dem - 1]].lengthword + " ");
-                        sw.WriteLine(danhsachword[phantumang[dem - 1]].hinh.ToString() + " ");
-                        sw.WriteLine((dem - 1).ToString());
+                    sw.WriteLine(tenuser);
+                    sw.WriteLine((36 - dem + 1).ToString());
+                    for (int i = dem; i <= 36; i++)
+                    {
+                        sw.WriteLine(danhsachword[phantumang[i - 1]].englishword + " " + danhsachword[phantumang[i - 1]].lengthword + " " + danhsachword[phantumang[i - 1]].PathFile + "\t");
+                    }
                 }
-
+//                Environment.Exit(1);
             }
 
         }
@@ -109,23 +112,38 @@ namespace lam_game
         }
 
         private static tuvung[] danhsachword;
+
         Image hinh;
-//        Bitmap bgimg;
         string nameimage, chuoitam;
         string[] files;
         int bienthu = 0; //Bien nay chi la tam thoi.
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Next--;
-            vitri--;
-            board.Rows[0].Cells[Next].Value = "";
+            if (Next >= 0 && vitri >= 0)        //Chua sua cai nay.
+            {
+                Next--;
+                vitri--;
+                if (Next >= 0 && vitri >= 0)
+                    board.Rows[0].Cells[Next].Value = "";
+            }
         }
 
         public Form5(string nameuser)
         {
             InitializeComponent();
             this.tenuser = nameuser;
+            phantumang = new int[36];
+            danhsachword = new tuvung[36];
+        }
+
+        public Form5(string nameuser, int sotuvung, tuvung[] danhsachtu)
+        {
+            InitializeComponent();
+            this.tenuser = nameuser;
+            soword = sotuvung;
+            phantumang = new int[sotuvung];
+            danhsachword = danhsachtu;
         }
 
         public static string RandomString(int length)
@@ -164,53 +182,84 @@ namespace lam_game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images");
-            danhsachword = new tuvung[36];
-
-            for (int i = 0; i < 36;i++)
+            if (daload == 0)
             {
-                nameimage = Path.GetFileNameWithoutExtension(files[i]);
-                chieudaiword = nameimage.Length;
-                hinh = Image.FromFile("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images/" + nameimage + ".jpg");
-                //                bgimg = new Bitmap("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/images/" + nameimage + ".bmp");
-                danhsachword[i] = new tuvung(nameimage, chieudaiword, hinh);
-            }
+                files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images");
 
-            for (int i = 0; i < 36; i++)
-                phantumang[i] = i;
-
-            for (int i = 0; i < 10; i++)
-                phantuword[i] = i;
-
-            xaotron(ref phantumang);
-            xaotron(ref phantuword);
-
-            vitri = 0;
-            if (bienthu != 0)
-            {
-                if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
+                for (int i = 0; i < 36; i++)
                 {
-                    return;
+                    nameimage = Path.GetFileNameWithoutExtension(files[i]);
+                    chieudaiword = nameimage.Length;
+                    PathFile = "D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images/" + nameimage + ".jpg";
+                    hinh = Image.FromFile(PathFile);
+                    danhsachword[i] = new tuvung(nameimage, chieudaiword, hinh, PathFile);
                 }
+
+                for (int i = 0; i < 36; i++)
+                    phantumang[i] = i;
+
+                for (int i = 0; i < 10; i++)
+                    phantuword[i] = i;
+
+                xaotron(ref phantumang);
+                xaotron(ref phantuword);
+
+                vitri = 0;
+                if (bienthu != 0)
+                {
+                    if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
+                    {
+                        return;
+                    }
+                }
+                else
+                    bienthu++;
+
+                if (dem_1 == 0)
+                    dem_1 = 1;
+
+                pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
+                n = danhsachword[phantumang[dem]].lengthword;
+                InitializeBoard(n);
+                InitializeCross();
+                dem++;
+                if (dem == 3)
+                {
+                    bienthu = 0;
+                    vitri = 0;
+                }
+                Next = 0;
+                this.FormClosed += MainPage_FormClosed;
             }
             else
-                bienthu++;
-
-            if (dem_1 == 0)
-                dem_1 = 1;
-
-            pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
-            n = danhsachword[phantumang[dem]].lengthword;
-            InitializeBoard(n);
-            InitializeCross();
-            dem++;
-            if (dem == 3)
             {
-                bienthu = 0;
                 vitri = 0;
+                if (bienthu != 0)
+                {
+                    if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
+                    {
+                        return;
+                    }
+                }
+                else
+                    bienthu++;
+
+                if (dem_1 == 0)
+                    dem_1 = 1;
+
+                pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
+                n = danhsachword[phantumang[dem]].lengthword;
+                InitializeBoard(n);
+                InitializeCross();
+                dem++;
+                if (dem == 3)
+                {
+                    bienthu = 0;
+                    vitri = 0;
+                }
+                Next = 0;
+                this.FormClosed += MainPage_FormClosed;
             }
-            Next = 0;
-            this.FormClosed += MainPage_FormClosed; 
 
         }
 
@@ -332,7 +381,6 @@ namespace lam_game
             cross.Columns[8].Name = "i";
             cross.Columns[9].Name = "j";
 
-            //            string[] rows = new string[] { RandomStringresult(10,danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomStringresult(10, danhsachword[phantumang[dem]].englishword), RandomString(10), RandomString(10), RandomString(10)};
             string[] rows = new string[10];
             int j = 0;
 

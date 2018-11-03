@@ -71,13 +71,14 @@
             // lOADGAMEToolStripMenuItem
             // 
             this.lOADGAMEToolStripMenuItem.Name = "lOADGAMEToolStripMenuItem";
-            this.lOADGAMEToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.lOADGAMEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lOADGAMEToolStripMenuItem.Text = "LOAD GAME";
+            this.lOADGAMEToolStripMenuItem.Click += new System.EventHandler(this.lOADGAMEToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
