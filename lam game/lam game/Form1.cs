@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Media;
+using System.Text.RegularExpressions;
 
 namespace lam_game
 {
@@ -54,7 +55,6 @@ namespace lam_game
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 box = new Form5(txtBox.Text);
-                this.Hide();
                 box.ShowDialog();
             }
         }
@@ -96,15 +96,17 @@ namespace lam_game
             openFileDialog1.Title = "Select a File to Load";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string chuoitam, chuoiTemp = "           ", nameimage, PathFile;
+                string chuoitam, chuoiTemp = "           ", nameimage, PathFile; 
+
                 int LengthImage;
                 Image hinh;
                 StringBuilder ChuoiBuild;
+                string chuoidiem;
                 using (StreamReader sd = new StreamReader(openFileDialog1.FileName))
                 {
                     tenuser = sd.ReadLine();
                     sotuvung = Int32.Parse(sd.ReadLine());
-                    danhsachtu = new tuvung[36];
+                    danhsachtu = new tuvung[sotuvung];
                     for (int i = 0; i < sotuvung;i++)
                     {
                         int j = 0, k = 0;
@@ -117,6 +119,7 @@ namespace lam_game
                             j++;
                         }
                         nameimage = ChuoiBuild.ToString();
+                        nameimage = Regex.Replace(nameimage, @"\s", "");
                         k = 0;
                         j++;
                         chuoiTemp = "        ";
@@ -142,12 +145,18 @@ namespace lam_game
                         hinh = Image.FromFile(PathFile);
                         danhsachtu[i] = new tuvung(nameimage,LengthImage,hinh,PathFile);
                     }
+                    chuoidiem = sd.ReadLine();
                 }
-                box = new Form5(tenuser, sotuvung, danhsachtu);
+                box = new Form5(tenuser, sotuvung, danhsachtu,Int32.Parse(chuoidiem));
                 box.daload = 1;
                 box.ShowDialog();
             }
 
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
 
         }
     }

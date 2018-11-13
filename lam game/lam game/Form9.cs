@@ -31,7 +31,7 @@ namespace lam_game
 
         private void btnAgain_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

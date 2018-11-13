@@ -29,6 +29,7 @@ namespace lam_game
         private static int[] phantuword = new int[10];
         private string PathFile;
         public int daload = 0;
+        String PathSystem = System.IO.Directory.GetCurrentDirectory();
 
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -80,14 +81,15 @@ namespace lam_game
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
                     sw.WriteLine(tenuser);
-                    sw.WriteLine((36 - dem + 1).ToString());
-                    for (int i = dem; i <= 36; i++)
+                    sw.WriteLine((phantumang.Length - dem + 1).ToString());
+                    for (int i = dem; i <= phantumang.Length; i++)
                     {
                         sw.WriteLine(danhsachword[phantumang[i - 1]].englishword + " " + danhsachword[phantumang[i - 1]].lengthword + " " + danhsachword[phantumang[i - 1]].PathFile + "\t");
                     }
+                    sw.WriteLine(diemso.ToString());
                 }
-//                Environment.Exit(1);
             }
+            this.Close();
 
         }
 
@@ -120,10 +122,14 @@ namespace lam_game
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (Next >= 0 && vitri >= 0)        //Chua sua cai nay.
+            if (Next >= 0 && vitri >= 0)        
             {
-                Next--;
-                vitri--;
+                if (Next > 0)
+                    Next--;
+
+                if (vitri > 0)
+                    vitri--;
+
                 if (Next >= 0 && vitri >= 0)
                     board.Rows[0].Cells[Next].Value = "";
             }
@@ -133,17 +139,18 @@ namespace lam_game
         {
             InitializeComponent();
             this.tenuser = nameuser;
-            phantumang = new int[36];
-            danhsachword = new tuvung[36];
+            phantumang = new int[64];
+            danhsachword = new tuvung[64];
         }
 
-        public Form5(string nameuser, int sotuvung, tuvung[] danhsachtu)
+        public Form5(string nameuser, int sotuvung, tuvung[] danhsachtu, int diemso)
         {
             InitializeComponent();
             this.tenuser = nameuser;
-            soword = sotuvung;
+            this.soword = sotuvung;
             phantumang = new int[sotuvung];
             danhsachword = danhsachtu;
+            this.diemso = diemso;
         }
 
         public static string RandomString(int length)
@@ -186,7 +193,7 @@ namespace lam_game
             {
                 files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images");
 
-                for (int i = 0; i < 36; i++)
+                for (int i = 0; i < 64; i++)
                 {
                     nameimage = Path.GetFileNameWithoutExtension(files[i]);
                     chieudaiword = nameimage.Length;
@@ -195,7 +202,7 @@ namespace lam_game
                     danhsachword[i] = new tuvung(nameimage, chieudaiword, hinh, PathFile);
                 }
 
-                for (int i = 0; i < 36; i++)
+                for (int i = 0; i < phantumang.Length; i++)
                     phantumang[i] = i;
 
                 for (int i = 0; i < 10; i++)
@@ -229,7 +236,6 @@ namespace lam_game
                     vitri = 0;
                 }
                 Next = 0;
-                this.FormClosed += MainPage_FormClosed;
             }
             else
             {
@@ -247,10 +253,20 @@ namespace lam_game
                 if (dem_1 == 0)
                     dem_1 = 1;
 
+                for (int i = 0; i < phantumang.Length; i++)
+                    phantumang[i] = i;
+
+                for (int i = 0; i < 10; i++)
+                    phantuword[i] = i;
+
+                xaotron(ref phantuword);
+                xaotron(ref phantumang); //Phai xao tron cuoi cung.
+
                 pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
                 n = danhsachword[phantumang[dem]].lengthword;
-                InitializeBoard(n);
-                InitializeCross();
+
+                InitializeBoard(n); 
+                InitializeCross(); 
                 dem++;
                 if (dem == 3)
                 {
@@ -258,7 +274,7 @@ namespace lam_game
                     vitri = 0;
                 }
                 Next = 0;
-                this.FormClosed += MainPage_FormClosed;
+                diemlabel.Text = diemso.ToString();
             }
 
         }
@@ -364,6 +380,7 @@ namespace lam_game
             ibutton.Width = 71;
 
             cross.Columns.Insert(8, ibutton);
+
             jbutton = new DataGridViewButtonColumn();
             jbutton.Name = "j";
             jbutton.Width = 71;
@@ -598,7 +615,7 @@ namespace lam_game
 
         private void button1_Click(object sender, EventArgs e)
         {            
-            if (dem == 36)
+            if (dem == 64)
             {
                 xulydiem();
                 dem = 0;
@@ -607,9 +624,9 @@ namespace lam_game
                 this.Hide();
                 Form8 box = new Form8();
                 box.ShowDialog();
+                this.Close();
             }
 
-            vitri = 0;
             if (bienthu != 0)
             {
                 if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
@@ -627,6 +644,8 @@ namespace lam_game
                     box1.ShowDialog();
                     return;
                 }
+                else
+                    vitri = 0;
             }
             else
                 bienthu++;
@@ -653,7 +672,7 @@ namespace lam_game
             InitializeBoard(n);
             InitializeCross();
             dem++;
-            if (dem == 36)
+            if (dem == 64)
             {
                 bienthu = 0;
                 vitri = 0;
@@ -669,8 +688,7 @@ namespace lam_game
         }
 
         private string xulychuoi()
-        {
-            
+        {            
             chuoitam = " ";
             for (int i = 1; i < n; i++)
                 chuoitam += " ";
@@ -678,9 +696,10 @@ namespace lam_game
             StringBuilder sb = new StringBuilder(chuoitam);            
             for(int i = 0; i < n; i++)
             {
-                if (board.Rows[0].Cells[i].Value == null)
+                if (board.Rows[0].Cells[i].Value == null || board.Rows[0].Cells[i].Value.ToString() == "")
                     return "";
-                sb[i] = board.Rows[0].Cells[i].Value.ToString().ToCharArray()[0];
+                else
+                    sb[i] = board.Rows[0].Cells[i].Value.ToString().ToCharArray()[0];
             }
             chuoitam = sb.ToString();
             return chuoitam;

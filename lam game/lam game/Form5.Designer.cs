@@ -56,7 +56,7 @@
             // 
             this.board.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.board.ColumnHeadersVisible = false;
-            this.board.Location = new System.Drawing.Point(12, 297);
+            this.board.Location = new System.Drawing.Point(12, 353);
             this.board.Name = "board";
             this.board.RowHeadersVisible = false;
             this.board.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -66,7 +66,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(586, 400);
+            this.button1.Location = new System.Drawing.Point(586, 472);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 39);
             this.button1.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.cross.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cross.ColumnHeadersVisible = false;
-            this.cross.Location = new System.Drawing.Point(12, 364);
+            this.cross.Location = new System.Drawing.Point(12, 420);
             this.cross.Name = "cross";
             this.cross.RowHeadersVisible = false;
             this.cross.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -88,7 +88,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(12, 400);
+            this.btnDelete.Location = new System.Drawing.Point(12, 472);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(119, 39);
             this.btnDelete.TabIndex = 4;
@@ -106,7 +106,7 @@
             this.sETTINGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(735, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(948, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,7 +171,7 @@
             // 
             // btnHint
             // 
-            this.btnHint.Location = new System.Drawing.Point(311, 400);
+            this.btnHint.Location = new System.Drawing.Point(311, 472);
             this.btnHint.Name = "btnHint";
             this.btnHint.Size = new System.Drawing.Size(119, 39);
             this.btnHint.TabIndex = 6;
@@ -182,9 +182,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 43);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(448, 191);
+            this.pictureBox1.Size = new System.Drawing.Size(711, 291);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -193,7 +193,7 @@
             // 
             this.diemlabel.AutoSize = true;
             this.diemlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diemlabel.Location = new System.Drawing.Point(602, 159);
+            this.diemlabel.Location = new System.Drawing.Point(823, 189);
             this.diemlabel.Name = "diemlabel";
             this.diemlabel.Size = new System.Drawing.Size(36, 39);
             this.diemlabel.TabIndex = 7;
@@ -203,7 +203,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(553, 99);
+            this.label1.Location = new System.Drawing.Point(774, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 39);
             this.label1.TabIndex = 8;
@@ -214,7 +214,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(735, 479);
+            this.ClientSize = new System.Drawing.Size(948, 530);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.diemlabel);
             this.Controls.Add(this.btnHint);
