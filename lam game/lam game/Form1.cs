@@ -58,6 +58,7 @@ namespace lam_game
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 box = new Form5(txtBox.Text);
+                this.Hide();
                 box.ShowDialog();
             }
         }

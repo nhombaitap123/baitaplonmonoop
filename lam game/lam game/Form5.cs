@@ -71,9 +71,11 @@ namespace lam_game
 
         private void nEWGAMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form1 newgame = new Form1();
+            this.Hide();
+            newgame.ShowDialog();
             this.Close();
         }
-
 
         private void sAVEGAMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -235,6 +237,7 @@ namespace lam_game
                     vitri = 0;
                 }
                 Next = 0;
+                this.FormClosed += MainPage_FormClosed;
             }
             else
             {
@@ -274,6 +277,7 @@ namespace lam_game
                 }
                 Next = 0;
                 diemlabel.Text = diemso.ToString();
+                this.FormClosed += MainPage_FormClosed;
             }
 
         }
