@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
-            this.board = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cross = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWGAMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,59 +38,21 @@
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rANKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sETTINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnHint = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.diemlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.board)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cross)).BeginInit();
+            this.btnHint = new System.Windows.Forms.Button();
+            this.diemlabel = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.cross = new System.Windows.Forms.DataGridView();
+            this.board = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cross)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.board)).BeginInit();
             this.SuspendLayout();
-            // 
-            // board
-            // 
-            this.board.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.board.ColumnHeadersVisible = false;
-            this.board.Location = new System.Drawing.Point(12, 353);
-            this.board.Name = "board";
-            this.board.RowHeadersVisible = false;
-            this.board.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.board.Size = new System.Drawing.Size(711, 34);
-            this.board.TabIndex = 0;
-            this.board.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(586, 472);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Next";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cross
-            // 
-            this.cross.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cross.ColumnHeadersVisible = false;
-            this.cross.Location = new System.Drawing.Point(12, 420);
-            this.cross.Name = "cross";
-            this.cross.RowHeadersVisible = false;
-            this.cross.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.cross.Size = new System.Drawing.Size(711, 23);
-            this.cross.TabIndex = 3;
-            this.cross.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cross_CellClick);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(12, 472);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 39);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // menuStrip1
             // 
@@ -106,7 +64,7 @@
             this.sETTINGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(948, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1132, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -169,9 +127,55 @@
             this.sETTINGToolStripMenuItem.Text = "SETTING";
             this.sETTINGToolStripMenuItem.Click += new System.EventHandler(this.sETTINGToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::lam_game.Properties.Resources.maxresdefault;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnHint);
+            this.panel1.Controls.Add(this.diemlabel);
+            this.panel1.Controls.Add(this.btnDelete);
+            this.panel1.Controls.Add(this.cross);
+            this.panel1.Controls.Add(this.board);
+            this.panel1.Location = new System.Drawing.Point(3, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1129, 673);
+            this.panel1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(622, 493);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Next";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(49, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(710, 290);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(916, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 39);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Điểm số";
+            // 
             // btnHint
             // 
-            this.btnHint.Location = new System.Drawing.Point(311, 472);
+            this.btnHint.Location = new System.Drawing.Point(338, 493);
             this.btnHint.Name = "btnHint";
             this.btnHint.Size = new System.Drawing.Size(119, 39);
             this.btnHint.TabIndex = 6;
@@ -179,61 +183,70 @@
             this.btnHint.UseVisualStyleBackColor = true;
             this.btnHint.Click += new System.EventHandler(this.btnHint_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(711, 291);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // diemlabel
             // 
             this.diemlabel.AutoSize = true;
             this.diemlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diemlabel.Location = new System.Drawing.Point(823, 189);
+            this.diemlabel.Location = new System.Drawing.Point(965, 191);
             this.diemlabel.Name = "diemlabel";
             this.diemlabel.Size = new System.Drawing.Size(36, 39);
             this.diemlabel.TabIndex = 7;
             this.diemlabel.Text = "0";
             // 
-            // label1
+            // btnDelete
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(774, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 39);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Điểm số";
+            this.btnDelete.Location = new System.Drawing.Point(48, 493);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(119, 39);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // cross
+            // 
+            this.cross.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cross.ColumnHeadersVisible = false;
+            this.cross.Location = new System.Drawing.Point(49, 421);
+            this.cross.Name = "cross";
+            this.cross.RowHeadersVisible = false;
+            this.cross.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.cross.Size = new System.Drawing.Size(711, 23);
+            this.cross.TabIndex = 3;
+            this.cross.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cross_CellClick);
+            // 
+            // board
+            // 
+            this.board.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.board.ColumnHeadersVisible = false;
+            this.board.Location = new System.Drawing.Point(49, 343);
+            this.board.Name = "board";
+            this.board.RowHeadersVisible = false;
+            this.board.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.board.Size = new System.Drawing.Size(711, 34);
+            this.board.TabIndex = 0;
+            this.board.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(948, 530);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.diemlabel);
-            this.Controls.Add(this.btnHint);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.cross);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.board);
+            this.ClientSize = new System.Drawing.Size(1132, 697);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form5";
             this.Text = "GAME TIẾNG ANH";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.board)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cross)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cross)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.board)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +271,7 @@
         private System.Windows.Forms.Button btnHint;
         private System.Windows.Forms.Label diemlabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

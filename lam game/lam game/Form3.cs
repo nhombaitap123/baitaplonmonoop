@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace lam_game
 {
     public partial class Form3 : Form
     {
         private xephang[] danhsachdiem = new xephang[5];
+
         public Form3()
         {
             InitializeComponent();
-            using (StreamReader sr = new StreamReader("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
+            String PathSystem = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            using (StreamReader sr = new StreamReader(PathSystem + "/data/dulieu.txt"))
             {                
                 int i = 0;
                 string line;

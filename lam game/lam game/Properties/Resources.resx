@@ -121,4 +121,16 @@
   <data name="mute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resource\mute.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rsz_night-forest-background-simple-game-level-location-concept-hd-looping-animation_ryepos_abe_thumbnail-full01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\resource\rsz_night-forest-background-simple-game-level-location-concept-hd-looping-animation_ryepos_abe_thumbnail-full01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maxresdefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\resource\maxresdefault.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rsz_a0ae447d7d69c5e0abdf7b29dc7aada0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\resource\rsz_a0ae447d7d69c5e0abdf7b29dc7aada0.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="34026063-colorful-paperclip-chain-page-border-" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\resource\34026063-colorful-paperclip-chain-page-border-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -63,9 +63,50 @@ namespace lam_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _34026063_colorful_paperclip_chain_page_border_ {
+            get {
+                object obj = ResourceManager.GetObject("34026063-colorful-paperclip-chain-page-border-", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maxresdefault {
+            get {
+                object obj = ResourceManager.GetObject("maxresdefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mute {
             get {
                 object obj = ResourceManager.GetObject("mute", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_a0ae447d7d69c5e0abdf7b29dc7aada0 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_a0ae447d7d69c5e0abdf7b29dc7aada0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_night_forest_background_simple_game_level_location_concept_hd_looping_animation_ryepos_abe_thumbnail_full01 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_night-forest-background-simple-game-level-location-concept-hd-looping-animati" +
+                        "on_ryepos_abe_thumbnail-full01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

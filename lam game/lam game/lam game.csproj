@@ -176,6 +176,10 @@
     <Folder Include="data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\resource\rsz_night-forest-background-simple-game-level-location-concept-hd-looping-animation_ryepos_abe_thumbnail-full01.jpg" />
+    <None Include="bin\Debug\resource\maxresdefault.jpg" />
+    <None Include="bin\Debug\resource\rsz_a0ae447d7d69c5e0abdf7b29dc7aada0.jpg" />
+    <None Include="bin\Debug\resource\34026063-colorful-paperclip-chain-page-border-.bmp" />
     <Content Include="resource\34026063-colorful-paperclip-chain-page-border-.bmp" />
     <Content Include="resource\BackGroundMusic.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

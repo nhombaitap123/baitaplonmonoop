@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 using System.Xml;
 
@@ -18,18 +19,24 @@ namespace lam_game
         int n = 0, diemso = 0, mangsong = 3, soword;
         int dem = 0, dem_1 = 0, Next = 0, chieudaiword, dem_hint = 0, vitri = 0;
         private static Random chuoingaunhien = new Random(DateTime.UtcNow.Millisecond), songaunhien = new Random(DateTime.UtcNow.Millisecond);
-        private static DataGridViewButtonColumn abutton, bbutton, cbutton, dbutton, 
-        ebutton, fbutton, gbutton, hbutton, ibutton, jbutton, 
-        kbutton, lbutton, mbutton, nbutton, obutton, pbutton, 
-        qbutton, rbutton, sbutton, tbutton, ubutton, vbutton, 
-        wbutton, xbutton, ybutton, zbutton;
+        private static DataGridViewButtonColumn abutton, bbutton, cbutton, dbutton,
+        ebutton, fbutton, gbutton, hbutton, ibutton, jbutton;
         private static xephang[] danhsachdiem = new xephang[6];
         private static int[] daysongaunhien = new int[3];
         private static int[] phantumang;
         private static int[] phantuword = new int[10];
         private string PathFile;
         public int daload = 0;
-        String PathSystem = System.IO.Directory.GetCurrentDirectory();
+        static String PathSystem = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        int fCount = Directory.GetFiles(PathSystem + "/resource/images", "*", SearchOption.TopDirectoryOnly).Length;
+        string tenuser;
+        SaveFileDialog savefile = new SaveFileDialog();
+        private static tuvung[] danhsachword;
+        Image hinh;
+        string nameimage, chuoitam;
+        string[] files;
+        int bienthu = 0;
+
 
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,7 +44,6 @@ namespace lam_game
             box.ShowDialog();
         }
 
-        string tenuser;
 
 
 
@@ -68,7 +74,6 @@ namespace lam_game
             this.Close();
         }
 
-        SaveFileDialog savefile = new SaveFileDialog();
 
         private void sAVEGAMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -113,12 +118,6 @@ namespace lam_game
             box.ShowDialog();
         }
 
-        private static tuvung[] danhsachword;
-
-        Image hinh;
-        string nameimage, chuoitam;
-        string[] files;
-        int bienthu = 0; //Bien nay chi la tam thoi.
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -139,8 +138,8 @@ namespace lam_game
         {
             InitializeComponent();
             this.tenuser = nameuser;
-            phantumang = new int[64];
-            danhsachword = new tuvung[64];
+            phantumang = new int[fCount];
+            danhsachword = new tuvung[fCount];
         }
 
         public Form5(string nameuser, int sotuvung, tuvung[] danhsachtu, int diemso)
@@ -191,13 +190,13 @@ namespace lam_game
         {
             if (daload == 0)
             {
-                files = Directory.GetFiles("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images");
+                files = Directory.GetFiles(PathSystem + "/resource/images");
 
-                for (int i = 0; i < 64; i++)
+                for (int i = 0; i < phantumang.Length; i++)
                 {
                     nameimage = Path.GetFileNameWithoutExtension(files[i]);
                     chieudaiword = nameimage.Length;
-                    PathFile = "D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/resource/images/" + nameimage + ".jpg";
+                    PathFile = PathSystem + "/resource/images/" + nameimage + ".jpg";
                     hinh = Image.FromFile(PathFile);
                     danhsachword[i] = new tuvung(nameimage, chieudaiword, hinh, PathFile);
                 }
@@ -615,7 +614,7 @@ namespace lam_game
 
         private void button1_Click(object sender, EventArgs e)
         {            
-            if (dem == 64)
+            if (dem == phantumang.Length)
             {
                 xulydiem();
                 dem = 0;
@@ -672,7 +671,7 @@ namespace lam_game
             InitializeBoard(n);
             InitializeCross();
             dem++;
-            if (dem == 64)
+            if (dem == phantumang.Length)
             {
                 bienthu = 0;
                 vitri = 0;
@@ -707,7 +706,7 @@ namespace lam_game
 
         private void xulydiem()
         {
-            using (StreamReader sd = new StreamReader("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
+            using (StreamReader sd = new StreamReader(PathSystem + "/data/dulieu.txt"))
             {
                 int i = 0;
                 string line;
@@ -752,7 +751,7 @@ namespace lam_game
             });
 
 
-            using (StreamWriter sw = new StreamWriter("D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/New folder/baitaplon/lam game/lam game/data/dulieu.txt"))
+            using (StreamWriter sw = new StreamWriter(PathSystem + "/data/dulieu.txt"))
             {
                 for (int i = 5; i > 0; i--)
                     sw.WriteLine(danhsachdiem[i].username + " " + danhsachdiem[i].diem + " ");

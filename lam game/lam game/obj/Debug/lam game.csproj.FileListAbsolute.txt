@@ -35,3 +35,23 @@ D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New fold
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form9.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form10.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form11.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\bin\Debug\lam game.exe.config
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam game.exe
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam game.pdb
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\bin\Debug\resource\BackGroundMusic.wav
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\bin\Debug\lam game.exe
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\bin\Debug\lam game.pdb
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam game.csprojResolveAssemblyReference.cache
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form1.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form10.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form11.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form2.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form3.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form5.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form6.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form7.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form8.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Form9.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Properties.Resources.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Resource1.resources
+C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam game.csproj.GenerateResource.Cache

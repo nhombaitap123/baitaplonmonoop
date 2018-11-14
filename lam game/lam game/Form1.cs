@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Media;
 using System.Text.RegularExpressions;
+using System.Reflection;
 
 namespace lam_game
 {
@@ -21,10 +22,12 @@ namespace lam_game
         private static tuvung[] danhsachtu;
         public static Form5 box;
         string tenuser;
+        static String PathSystem = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
         public Form1()
         {
             InitializeComponent();
-            player.SoundLocation = "D:/khoa học máy tính/lập trình hướng đối tượng/bài lab/lam game/lam game/resource/BackGroundMusic.wav";
+            player.SoundLocation = PathSystem + "/resource/BackGroundMusic.wav";
             player.Play();
         }
 
