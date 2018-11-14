@@ -31,6 +31,9 @@ namespace lam_game
 
         private void btnAgain_Click(object sender, EventArgs e)
         {
+            Form1 again = new Form1();
+            this.Hide();
+            again.ShowDialog();
             this.Close();
         }
     }
