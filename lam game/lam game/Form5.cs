@@ -262,7 +262,7 @@ namespace lam_game
                     phantuword[i] = i;
 
                 xaotron(ref phantuword);
-                xaotron(ref phantumang); //Phai xao tron cuoi cung.
+                xaotron(ref phantumang); 
 
                 pictureBox1.Image = danhsachword[phantumang[dem]].hinh;
                 n = danhsachword[phantumang[dem]].lengthword;
@@ -635,6 +635,7 @@ namespace lam_game
                 if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
                 {
                     mangsong--;
+                    diemso--;
                     if (mangsong == 0)
                     {
                         xulydiem();
