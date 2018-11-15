@@ -635,9 +635,9 @@ namespace lam_game
                 if (!checkresult(danhsachword[phantumang[dem - 1]].englishword, xulychuoi()))
                 {
                     mangsong--;
-                    diemso--;
                     if (mangsong == 0)
                     {
+                        diemso--;
                         xulydiem();
                         Form9 box = new Form9();
                         this.Hide();
