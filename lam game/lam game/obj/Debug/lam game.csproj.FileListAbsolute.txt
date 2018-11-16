@@ -14,7 +14,6 @@ D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New fold
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam game.pdb
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\bin\Debug\lam game.exe
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\bin\Debug\lam game.pdb
-D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam game.csprojResolveAssemblyReference.cache
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form1.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form2.resources
 D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam_game.Form3.resources
@@ -55,3 +54,5 @@ C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_
 C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Properties.Resources.resources
 C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam_game.Resource1.resources
 C:\Users\nghie\Downloads\baitaplonmonoop-master\lam game\lam game\obj\Debug\lam game.csproj.GenerateResource.Cache
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam game.csprojAssemblyReference.cache
+D:\khoa học máy tính\lập trình hướng đối tượng\bài lab\New folder\baitaplon\lam game\lam game\obj\Debug\lam game.csproj.CoreCompileInputs.cache

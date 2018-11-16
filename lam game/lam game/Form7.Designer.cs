@@ -37,29 +37,27 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
             "\t\t\t\tHƯỚNG DẪN CHƠI GAME",
-            "Có một số lượng từ vựng tiếng Anh trong các chủ đề khác nhau. ",
+            "Có 1 hình ảnh, nhiều ô chữ, mỗi ô chứa một letter và có 10 letters gợi ý trong bả" +
+                "ng chữ cái tiếng Anh nằm ở dưới hình ảnh và những ô chữ này.",
             "",
-            "Có 1 ô chữ và có 15 chữ cái trong bảng chữ cái tiếng Anh nằm ở dưới ô chữ này.",
+            "Nhiệm vụ của người chơi là lựa chọn trong 10 letters cho sẵn và điền vào ô chữ ch" +
+                "o phù hợp với nội dung của hình ảnh. ",
             "",
-            "Nhiệm vụ của người chơi là lựa chọn trong 15 chữ cho sẵn và điền vào ô chữ. ",
+            "Người chơi khi chọn letters cho sẵn thì letters sẽ được xếp vào ô chữ lần lượt th" +
+                "eo thứ tự từ đầu tới cuối. ",
             "",
-            "Có 3 trợ giúp, trợ giúp là mở 1 ô chữ bất kì một cách ngẫu nhiên trong ô chữ. ",
+            resources.GetString("listBox1.Items"),
             "",
-            "Người chơi khi chọn các chữ cho sẵn thì các chữ này sẽ được xếp vào ô chữ lần lượ" +
-                "t theo thứ tự từ đầu tới cuối. ",
-            "",
-            "Nếu ô đó đã được mở bằng quyền trợ giúp thì bỏ qua ô đó và điền vào ô kế tiếp. Sa" +
-                "u khi điền đầy đủ hết ô chữ thì người chơi bấm nút finish để kết thúc. ",
+            "Sau khi điền đầy đủ hết ô chữ thì người chơi bấm nút Next. ",
             "",
             "Nếu đáp án đúng thì qua câu tiếp theo. ",
             "",
-            "Nếu đáp án sai thì dừng trò chơi. Chương trình sẽ hiện lên bảng thông báo là ngườ" +
-                "i chơi đã thua. ",
+            resources.GetString("listBox1.Items1"),
             "",
-            "Nếu thắng được 10 câu thì hiện lên bảng thông báo khen ngợi người chơi. ",
+            "Người chơi nhấn nút Exit để kết thúc trò chơi và nhấn nút chơi lại để chơi lại tr" +
+                "ò chơi.",
             "",
-            "Nếu chiến thắng hết các câu hỏi thì hiện bảng thông báo người chơi đã chiến thắng" +
-                "."});
+            resources.GetString("listBox1.Items2")});
             this.listBox1.Location = new System.Drawing.Point(8, 9);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(740, 160);

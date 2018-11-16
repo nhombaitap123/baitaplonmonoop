@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="listBox1.Items" xml:space="preserve">
+    <value>Có 3 trợ giúp, trợ giúp là mở 1 ô chữ tiếp theo của một dãy các chữ. Người chơi chọn quyền trợ giúp bằng cách nhấn nút Hint. Khi hết quyền trợ giúp thì sẽ hiện lên một bảng thông báo là người chơi đã hết quyền trợ giúp. Để quay lại trò chơi thì người chơi cần bấm nút quay lại.</value>
+  </data>
+  <data name="listBox1.Items1" xml:space="preserve">
+    <value>Nếu đáp án sai thì chương trình hiện nên bảng thông báo là đáp án của người chơi đã sai. Người chơi có 3 lần được phép điền sai. Nếu quá 3 lần thì sẽ hiện lên bảng thông báo người chơi đã thua và có 2 nút để chọn là: nút chơi lại và nút Exit.</value>
+  </data>
+  <data name="listBox1.Items2" xml:space="preserve">
+    <value>Nếu chiến thắng hết các câu hỏi thì hiện bảng thông báo người chơi đã chiến thắng. Bảng thông bảo cũng có 2 nút là chơi lại và Exit. Người chơi nhấn nút Exit để kết thúc trò chơi và nhấn nút chơi lại để chơi lại trò chơi.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

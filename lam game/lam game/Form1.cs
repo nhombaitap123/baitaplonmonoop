@@ -153,6 +153,7 @@ namespace lam_game
                 }
                 box = new Form5(tenuser, sotuvung, danhsachtu,Int32.Parse(chuoidiem));
                 box.daload = 1;
+                this.Hide();
                 box.ShowDialog();
             }
 
