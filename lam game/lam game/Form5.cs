@@ -22,7 +22,6 @@ namespace lam_game
         private static DataGridViewButtonColumn abutton, bbutton, cbutton, dbutton,
         ebutton, fbutton, gbutton, hbutton, ibutton, jbutton;
         private static xephang[] danhsachdiem = new xephang[6];
-        private static int[] daysongaunhien = new int[3];
         private static int[] phantumang;
         private static int[] phantuword = new int[10];
         private string PathFile;
